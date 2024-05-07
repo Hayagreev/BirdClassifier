@@ -1,0 +1,1 @@
+This Folder contains all information related to the CNN model needed to classify flowers.
