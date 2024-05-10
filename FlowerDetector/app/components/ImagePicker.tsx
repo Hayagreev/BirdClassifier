@@ -28,7 +28,7 @@ export default function ImagePickerExample() {
   };
 
   return (
-    <View style={{justifyContent: 'center', alignItems: 'center'}}>
+    <View style={styles.container}>
       <Button title="Pick an image" onPress={pickImage} />
       {image && <Image source={{ uri: image }} style={styles.image} />}
       {image && (
@@ -43,6 +43,10 @@ export default function ImagePickerExample() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   image: {
     width: 200,
     height: 200
