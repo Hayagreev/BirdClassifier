@@ -9,9 +9,7 @@ PODS:
   - EXJSONUtils (0.13.1)
   - EXManifests (0.14.2):
     - ExpoModulesCore
-  - EXPermissions (14.4.0):
-    - ExpoModulesCore
-  - Expo (51.0.0):
+  - Expo (51.0.4):
     - ExpoModulesCore
   - expo-dev-client (4.0.13):
     - EXManifests
@@ -224,15 +222,19 @@ PODS:
     - ExpoModulesCore
   - ExpoFileSystem (17.0.1):
     - ExpoModulesCore
-  - ExpoFont (12.0.4):
+  - ExpoFont (12.0.5):
     - ExpoModulesCore
-  - ExpoHead (3.5.10):
+  - ExpoHead (3.5.12):
     - ExpoModulesCore
+  - ExpoImageManipulator (12.0.4):
+    - EXImageLoader
+    - ExpoModulesCore
+    - SDWebImageWebPCoder
   - ExpoImagePicker (15.0.4):
     - ExpoModulesCore
   - ExpoKeepAwake (13.0.1):
     - ExpoModulesCore
-  - ExpoModulesCore (1.12.9):
+  - ExpoModulesCore (1.12.10):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -315,6 +317,18 @@ PODS:
     - hermes-engine/Pre-built (= 0.74.1)
   - hermes-engine/Pre-built (0.74.1)
   - leveldb-library (1.22.5)
+  - libwebp (1.3.2):
+    - libwebp/demux (= 1.3.2)
+    - libwebp/mux (= 1.3.2)
+    - libwebp/sharpyuv (= 1.3.2)
+    - libwebp/webp (= 1.3.2)
+  - libwebp/demux (1.3.2):
+    - libwebp/webp
+  - libwebp/mux (1.3.2):
+    - libwebp/demux
+  - libwebp/sharpyuv (1.3.2)
+  - libwebp/webp (1.3.2):
+    - libwebp/sharpyuv
   - PromisesObjC (2.4.0)
   - RCT-Folly (2024.01.01.00):
     - boost
@@ -1496,10 +1510,10 @@ PODS:
     - React-logger (= 0.74.1)
     - React-perflogger (= 0.74.1)
     - React-utils (= 0.74.1)
-  - RNFBApp (17.4.0):
+  - RNFBApp (17.5.0):
     - Firebase/CoreOnly (= 10.7.0)
     - React-Core
-  - RNFBDatabase (17.4.0):
+  - RNFBDatabase (17.5.0):
     - Firebase/Database (= 10.7.0)
     - React-Core
     - RNFBApp
@@ -1524,7 +1538,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNReanimated (3.10.0):
+  - RNReanimated (3.10.1):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1567,6 +1581,10 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - SDWebImage/Core (5.19.2)
+  - SDWebImageWebPCoder (0.14.6):
+    - libwebp (~> 1.0)
+    - SDWebImage/Core (~> 5.17)
   - SocketRocket (0.7.0)
   - Yoga (0.0.0)
 
@@ -1577,7 +1595,6 @@ DEPENDENCIES:
   - EXImageLoader (from `../node_modules/expo-image-loader/ios`)
   - EXJSONUtils (from `../node_modules/expo-json-utils/ios`)
   - EXManifests (from `../node_modules/expo-manifests/ios`)
-  - EXPermissions (from `../node_modules/expo-permissions/ios`)
   - Expo (from `../node_modules/expo`)
   - expo-dev-client (from `../node_modules/expo-dev-client/ios`)
   - expo-dev-launcher (from `../node_modules/expo-dev-launcher`)
@@ -1587,6 +1604,7 @@ DEPENDENCIES:
   - ExpoFileSystem (from `../node_modules/expo-file-system/ios`)
   - ExpoFont (from `../node_modules/expo-font/ios`)
   - ExpoHead (from `../node_modules/expo-router/ios`)
+  - ExpoImageManipulator (from `../node_modules/expo-image-manipulator/ios`)
   - ExpoImagePicker (from `../node_modules/expo-image-picker/ios`)
   - ExpoKeepAwake (from `../node_modules/expo-keep-awake/ios`)
   - ExpoModulesCore (from `../node_modules/expo-modules-core`)
@@ -1665,7 +1683,10 @@ SPEC REPOS:
     - FirebaseDatabase
     - GoogleUtilities
     - leveldb-library
+    - libwebp
     - PromisesObjC
+    - SDWebImage
+    - SDWebImageWebPCoder
     - SocketRocket
 
 EXTERNAL SOURCES:
@@ -1681,8 +1702,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-json-utils/ios"
   EXManifests:
     :path: "../node_modules/expo-manifests/ios"
-  EXPermissions:
-    :path: "../node_modules/expo-permissions/ios"
   Expo:
     :path: "../node_modules/expo"
   expo-dev-client:
@@ -1701,6 +1720,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-font/ios"
   ExpoHead:
     :path: "../node_modules/expo-router/ios"
+  ExpoImageManipulator:
+    :path: "../node_modules/expo-image-manipulator/ios"
   ExpoImagePicker:
     :path: "../node_modules/expo-image-picker/ios"
   ExpoKeepAwake:
@@ -1844,19 +1865,19 @@ SPEC CHECKSUMS:
   EXImageLoader: ab589d67d6c5f2c33572afea9917304418566334
   EXJSONUtils: 30c17fd9cc364d722c0946a550dfbf1be92ef6a4
   EXManifests: 866d0c365eb46835d48be2c7a0e00418312992b4
-  EXPermissions: 51c6115893689c3e9787f4819aa67ceeae601038
-  Expo: 17eb02cbf2ac0db49a6bc0c80a6b635a900d4f60
+  Expo: ce2265cc694f9f71c2eb572c8fe05edbc75137a8
   expo-dev-client: a4fbaa4a68a09abc4dabf25038b77f8f845b8433
   expo-dev-launcher: 1c92366e91e56b92d983711ac5e2cf358d210673
   expo-dev-menu: 7f7c199ebc4854686914708b9f65e1c70206c814
   expo-dev-menu-interface: be32c09f1e03833050f0ee290dcc86b3ad0e73e4
   ExpoAsset: 9b7433ecc5f1b608ccbb823492e062bde944abd2
   ExpoFileSystem: 80bfe850b1f9922c16905822ecbf97acd711dc51
-  ExpoFont: 331cf28d549edc7b6300d3be19302fc5069d9bb1
-  ExpoHead: f27f34fd61e2a55b2facd0bba0fe85bc7958fbe0
+  ExpoFont: 690b76008be824e47907f200cb0764870108dfd1
+  ExpoHead: 1403ab1219f4f95f0a288f27312a9ef2863eebc7
+  ExpoImageManipulator: ec96bcdeab717c220abe707b45079a4001be7b79
   ExpoImagePicker: f6d9da49201ce201645366afc6be12cef47f24d7
   ExpoKeepAwake: f3a7b0ff4b4911957264dad8cb584ef688326a22
-  ExpoModulesCore: d77c784e6434cd8b09c166791aae25155aecae76
+  ExpoModulesCore: 018110a6db4e6cbbb3a4d0e6ad5c6f4f4cd7dc67
   ExpoSamplePedometer: d381ba32296e655751526f1a4dfa94f6cda4c91b
   ExpoSystemUI: b5ecc4b6781b6369fb8b3a0903bea36fae3dd090
   ExpoWebBrowser: 7595ccac6938eb65b076385fd23d035db9ecdc8e
@@ -1872,6 +1893,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: ea963c370a38a8069cc5f7ba4ca849a60b6d7d15
   hermes-engine: 16b8530de1b383cdada1476cf52d1b52f0692cbc
   leveldb-library: e8eadf9008a61f9e1dde3978c086d2b6d9b9dc28
+  libwebp: 1786c9f4ff8a279e4dac1e8f385004d5fc253009
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   RCT-Folly: 02617c592a293bd6d418e0a88ff4ee1f88329b47
   RCTDeprecation: efb313d8126259e9294dc4ee0002f44a6f676aba
@@ -1922,11 +1944,13 @@ SPEC CHECKSUMS:
   React-runtimescheduler: 86b9c5bccd239d91da33e08b4c58c6a40b7fdb48
   React-utils: 8e9c5cd66f0788e156a1fcb5cd69593ec8607611
   ReactCommon: eb4c4a9c43fcc0d93f922d0fdada24638429e515
-  RNFBApp: 525cc4317f7955eda6bac09fac3acf7ee06afa0b
-  RNFBDatabase: d7dff29d2a9a0e1a8da27841f20dc6b1122a6454
+  RNFBApp: 0d8bf86673bbad0524d1ceac3944d71ccf48a0e4
+  RNFBDatabase: 81640ecb1080b557406d87a27cb06422725286fd
   RNGestureHandler: 20a4307fd21cbff339abfcfa68192f3f0a6a518b
-  RNReanimated: 817382c8a48e198bd081e946694981c7e68bec59
+  RNReanimated: d51431fd3597a8f8320319dce8e42cee82a5445f
   RNScreens: 30249f9331c3b00ae7cb7922e11f58b3ed369c07
+  SDWebImage: dfe95b2466a9823cf9f0c6d01217c06550d7b29a
+  SDWebImageWebPCoder: e38c0a70396191361d60c092933e22c20d5b1380
   SocketRocket: abac6f5de4d4d62d24e11868d7a2f427e0ef940d
   Yoga: d02ee88821190d82b2daa5cd15640a82ffafaaab
 

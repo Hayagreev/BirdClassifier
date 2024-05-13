@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button, Image, View, StyleSheet, Text } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
+import * as ImageManipulator from 'expo-image-manipulator';
 
 export default function ImagePickerExample() {
   const [image, setImage] = useState("");
@@ -23,8 +24,14 @@ export default function ImagePickerExample() {
     }
   };
 
-  const handleSubmit = () => {
-    console.log('Image submitted: ', image);
+  const handleSubmit = async () => {
+    const manipResult = await ImageManipulator.manipulateAsync(
+      image,
+      [{ resize: { width: 180, height: 180 } }],
+      { format: ImageManipulator.SaveFormat.JPEG }
+    );
+ 
+    console.log('Image submitted: ', manipResult.uri);
   };
 
   return (
