@@ -1,6 +1,6 @@
 # SummerProject
 
-Commands to run the TensorFlow Serving Server:
+Commands to run the TensorFlow Serving Server (Example):
 
 docker pull emacski/tensorflow-serving:latest-linux_arm64
 
