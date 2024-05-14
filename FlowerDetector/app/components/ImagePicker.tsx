@@ -5,7 +5,7 @@ import * as ImageManipulator from 'expo-image-manipulator';
 import * as FileSystem from 'expo-file-system';
 import * as tf from '@tensorflow/tfjs'
 import { decodeJpeg } from '@tensorflow/tfjs-react-native'
-
+import { birdSpecies } from '../../constants/BirdSpecies'
 
 export default function ImagePickerExample() {
   const [image, setImage] = useState("");
@@ -56,7 +56,23 @@ export default function ImagePickerExample() {
     })
       .then((response) => response.json())
       .then((responseData) => {
-        console.log(JSON.stringify(responseData));
+        console.log("Response Data: " + JSON.stringify(responseData));
+
+        var predictions = responseData["predictions"][0];
+        var maxIndex = 0;
+
+        for (var i = 1; i < predictions.length; i++) {
+          if (predictions[i] > predictions[maxIndex]) {
+            maxIndex = i;
+          }
+        }
+
+        console.log("max index: " + maxIndex);
+
+        var maxBird = birdSpecies[maxIndex];
+
+        console.log("Max Bird: " + maxBird);
+
       })
  
     console.log('Image submitted: ', manipResult.uri);
