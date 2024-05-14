@@ -6,6 +6,7 @@ import * as FileSystem from 'expo-file-system';
 import * as tf from '@tensorflow/tfjs'
 import { decodeJpeg } from '@tensorflow/tfjs-react-native'
 import { birdSpecies } from '../../constants/BirdSpecies'
+import { router } from 'expo-router';
 
 export default function ImagePickerExample() {
   const [image, setImage] = useState("");
@@ -56,8 +57,6 @@ export default function ImagePickerExample() {
     })
       .then((response) => response.json())
       .then((responseData) => {
-        console.log("Response Data: " + JSON.stringify(responseData));
-
         var predictions = responseData["predictions"][0];
         var maxIndex = 0;
 
@@ -67,11 +66,14 @@ export default function ImagePickerExample() {
           }
         }
 
-        console.log("max index: " + maxIndex);
-
         var maxBird = birdSpecies[maxIndex];
 
         console.log("Max Bird: " + maxBird);
+
+        router.push({
+          pathname: '/components/BirdCard',
+          params: {birdName: maxBird}
+        })
 
       })
  

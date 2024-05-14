@@ -1,4 +1,3 @@
-import { BirdCardInterface } from "../types"
 import { useState } from 'react';
 
 import { Text, View, Image, ScrollView, SafeAreaView } from "react-native";
@@ -6,9 +5,15 @@ import { Text, View, Image, ScrollView, SafeAreaView } from "react-native";
 import db from "@react-native-firebase/database";
 
 import Images from '../../assets/images/index';
+import { useLocalSearchParams } from "expo-router";
 
+type SearchParamType = {
+    birdName: string;
+  };
 
-const BirdCard = ({birdName}: BirdCardInterface) => {
+export default function BirdCard() {
+  const params = useLocalSearchParams<SearchParamType>();
+  const birdName: string = params.birdName!;
 
   const [funFact1, setFunFact1] = useState("");
   const [funFact2, setFunFact2] = useState("");
@@ -75,5 +80,3 @@ const BirdCard = ({birdName}: BirdCardInterface) => {
     </SafeAreaView>
   )
 }
-
-export default BirdCard
