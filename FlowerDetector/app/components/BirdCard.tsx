@@ -1,9 +1,6 @@
 import { useState } from 'react';
-
 import { Text, View, Image, ScrollView, SafeAreaView } from "react-native";
-
 import db from "@react-native-firebase/database";
-
 import Images from '../../assets/images/index';
 import { useLocalSearchParams } from "expo-router";
 
@@ -33,7 +30,11 @@ export default function BirdCard() {
 
     setPrefDiet(birdData.prefDiet);
     setPrefWeather(birdData.prefWeather);
-  })
+  }).catch(function(error) {
+    console.log('There has been a problem with your fetch operation: ' + error.message);
+     // ADD THIS THROW error
+      throw error;
+    });
 
   return (
     <SafeAreaView>
