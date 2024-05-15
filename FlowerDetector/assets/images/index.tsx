@@ -1,5 +1,30 @@
 const Images: { [id: string]: any } = {
-    'Asian-Green-Bee-Eater': require('./asian-green-bee-eater.jpeg'),
+    'Asian-Green-Bee-Eater': require('./Asian-Green-Bee-Eater.jpeg'),
+    'Brown-Headed-Barbet': require('./Brown-Headed-Barbet.jpeg'),
+    'Cattle-Egret': require('./Cattle-Egret.jpeg'),
+    'Common-Kingfisher': require('./Common-Kingfisher.jpeg'),
+    'Common-Myna': require('./Common-Myna.jpeg'),
+    'Common-Rosefinch': require('./Common-Rosefinch.jpeg'),
+    'Common-Tailorbird': require('./Common-Tailorbird.jpeg'),
+    'Coppersmith-Barbet': require('./Coppersmith-Barbet.jpeg'),
+    'Forest-Wagtail': require('./Forest-Wagtail.jpeg'),
+    'Gray-Wagtail': require('./Gray-Wagtail.jpeg'),
+    'Hoopoe': require('./Hoopoe.jpeg'),
+    'House-Crow': require('./House-Crow.jpeg'),
+    'Indian-Grey-Hornbill': require('./Indian-Grey-Hornbill.jpeg'),
+    'Indian-Peacock': require('./Indian-Peacock.jpeg'),
+    'Indian-Pitta': require('./Indian-Pitta.jpeg'),
+    'Indian-Roller': require('./Indian-Roller.jpeg'),
+    'Jungle-Babbler': require('./Jungle-Babbler.jpeg'),
+    'Northern-Lapwing': require('./Northern-Lapwing.jpeg'),
+    'Red-Wattled-Lapwing': require('./Red-Wattled-Lapwing.jpeg'),
+    'Ruddy-Shelduck': require('./Ruddy-Shelduck.jpeg'),
+    'Rufous-Treepie': require('./Rufous-Treepie.jpeg'),
+    'Sarus-Crane': require('./Sarus-Crane.jpeg'),
+    'White-Breasted-Kingfisher': require('./White-Breasted-Kingfisher.jpeg'),
+    'White-Breasted-Waterhen': require('./White-Breasted-Waterhen.jpeg'),
+    'White-Wagtail': require('./White-Wagtail.jpeg'),
+
 };
 
 export default Images;

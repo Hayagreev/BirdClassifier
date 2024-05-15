@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Text, View, Image, ScrollView, SafeAreaView } from "react-native";
+import { Text, View, Image, ScrollView, SafeAreaView, Dimensions } from "react-native";
 import db from "@react-native-firebase/database";
 import Images from '../../assets/images/index';
 import { useLocalSearchParams } from "expo-router";
@@ -44,9 +44,12 @@ export default function BirdCard() {
                     {birdName}
                 </Text>
 
+
                 <Image
-                    style={{width: '100%'}}
+                    style={{width: Dimensions.get('window').width,
+                        height: 408 * Dimensions.get('window').width/541}}
                     source={Images[birdName]}
+                    resizeMode="contain"
                 />
 
                 <View style={{justifyContent: 'center'}}>
