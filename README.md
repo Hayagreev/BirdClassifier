@@ -1,6 +1,6 @@
 # Bird Classifier
 
-Simply upload an image of a bird, click submit, and view details about the bird.
+Simply upload an image of a bird, click submit, and view details about the bird. Currently supports classification of 25 birds found in India.
 
 Example flow:
 
